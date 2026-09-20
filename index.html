@@ -286,8 +286,8 @@ async function loadLive(){
 function renderStats(){
   const repos=state.repos;
   const stars=repos.reduce((a,r)=>a+r.stargazers_count,0);
-  const pushes=state.events.filter(e=>e.type==="PushEvent")
-    .reduce((a,e)=>a+((e.payload&&e.payload.commits)?e.payload.commits.length:(e.payload&&e.payload.size||0)),0);
+  const pushes=state.events.filter(e=>e.type==="PushEvent").length;
+
   const langs={};
   repos.forEach(r=>{ if(r.language) langs[r.language]=(langs[r.language]||0)+1; });
   const top=Object.entries(langs).sort((a,b)=>b[1]-a[1])[0];
@@ -391,7 +391,7 @@ function initPulse(){
   for(const e of state.events){
     if(e.type!=="PushEvent") continue;
     const key=e.created_at.slice(0,10);
-    const n=(e.payload&&e.payload.commits)?e.payload.commits.length:(e.payload&&e.payload.size||0);
+    const n=1; // one PushEvent = one push (the API omits per-push commit lists)
     if(map[key]){ map[key].n+=n; total+=n; }
   }
   const peak=days.reduce((a,d)=>d.n>a.n?d:a, days[0]);
