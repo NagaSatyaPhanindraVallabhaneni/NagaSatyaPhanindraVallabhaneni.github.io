@@ -19,6 +19,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--mono);overflow-x:h
 ::selection{background:var(--cyan);color:#001318}
 a{color:var(--cyan);text-decoration:none}
 a:hover{text-decoration:underline}
+
+/* ---------- boot overlay ---------- */
 #boot{position:fixed;inset:0;background:#020409;z-index:100;display:flex;align-items:center;justify-content:center;transition:opacity .8s ease;cursor:pointer}
 #boot.done{opacity:0;pointer-events:none}
 #boot-inner{width:min(720px,92vw);height:min(480px,70vh);overflow:hidden}
@@ -26,7 +28,11 @@ a:hover{text-decoration:underline}
 #boot-lines .ok{color:var(--green)} #boot-lines .warn{color:var(--amber)} #boot-lines .dim{color:var(--muted)}
 .cursor{display:inline-block;width:9px;height:17px;background:var(--cyan);vertical-align:-3px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
+
+/* ---------- background canvas ---------- */
 #stars{position:fixed;inset:0;z-index:-1;opacity:.85}
+
+/* ---------- header ---------- */
 header{position:sticky;top:0;z-index:50;background:rgba(4,7,13,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,229,255,.18)}
 .hwrap{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .logo{font-weight:700;letter-spacing:2px;color:var(--cyan);font-size:15px;text-shadow:0 0 12px rgba(0,229,255,.6)}
@@ -34,6 +40,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(4,7,13,.82);backdrop-fil
 nav{margin-left:auto;display:flex;gap:18px;font-size:13px}
 nav a{color:var(--muted)} nav a:hover{color:var(--cyan);text-decoration:none}
 #clock{font-size:12px;color:var(--muted);border:1px solid rgba(0,229,255,.25);padding:4px 10px;border-radius:4px}
+
+/* ---------- layout ---------- */
 main{max-width:1180px;margin:0 auto;padding:0 20px 80px}
 section{margin-top:56px}
 .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;flex-wrap:wrap}
@@ -45,6 +53,8 @@ section{margin-top:56px}
 .panel::before,.panel::after{content:"";position:absolute;width:14px;height:14px;border:2px solid var(--cyan);opacity:.7}
 .panel::before{top:-2px;left:-2px;border-right:none;border-bottom:none}
 .panel::after{bottom:-2px;right:-2px;border-left:none;border-top:none}
+
+/* ---------- hero ---------- */
 #hero{padding:70px 0 10px}
 .kicker{color:var(--amber);font-size:13px;letter-spacing:4px;margin-bottom:14px}
 #typed-name{font-size:clamp(30px,6vw,58px);font-weight:700;letter-spacing:2px;color:#fff;text-shadow:0 0 30px rgba(0,229,255,.45);min-height:1.3em}
@@ -56,12 +66,16 @@ section{margin-top:56px}
 .btn:hover{background:var(--cyan);color:#001318;box-shadow:0 0 24px rgba(0,229,255,.5);text-decoration:none}
 .btn.solid{background:var(--cyan);color:#001318;font-weight:700}
 .btn.solid:hover{background:#fff}
+
+/* ---------- stats ---------- */
 .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
 .stat{background:rgba(0,229,255,.04);border:1px solid rgba(0,229,255,.16);border-radius:8px;padding:16px;text-align:center}
 .stat .v{font-size:30px;font-weight:700;color:#fff;text-shadow:0 0 16px rgba(0,229,255,.5)}
 .stat .v.amber{color:var(--amber);text-shadow:0 0 16px rgba(255,179,0,.5)}
 .stat .l{font-size:11px;letter-spacing:2px;color:var(--muted);margin-top:6px}
 #data-stamp{margin-top:12px;font-size:11px;color:var(--muted);letter-spacing:1px}
+
+/* ---------- constellation ---------- */
 #constel-wrap{display:grid;grid-template-columns:1fr 300px;gap:18px}
 @media(max-width:860px){#constel-wrap{grid-template-columns:1fr}}
 #constel{width:100%;height:520px;display:block;border-radius:8px;background:radial-gradient(ellipse at center,rgba(0,229,255,.05),transparent 70%);cursor:crosshair;touch-action:none}
@@ -71,7 +85,11 @@ section{margin-top:56px}
 #repo-info .meta{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--cyan)}
 #repo-info .open{margin-top:12px;display:inline-block;font-size:12px}
 .hint{font-size:11px;color:var(--muted);margin-top:10px;letter-spacing:1px}
+
+/* ---------- pulse ---------- */
 #pulse{width:100%;height:300px;display:block}
+
+/* ---------- terminal ---------- */
 #term{background:#020409;border:1px solid rgba(0,229,255,.25);border-radius:10px;overflow:hidden}
 #term-bar{display:flex;gap:8px;padding:10px 14px;background:rgba(0,229,255,.06);border-bottom:1px solid rgba(0,229,255,.15);font-size:12px;color:var(--muted);align-items:center}
 #term-bar .d{width:11px;height:11px;border-radius:50%}
@@ -80,32 +98,71 @@ section{margin-top:56px}
 #term-in-row{display:flex;padding:12px 18px;border-top:1px solid rgba(0,229,255,.15);align-items:center}
 #term-in-row .prompt{color:var(--green);margin-right:10px;font-size:14px}
 #term-in{flex:1;background:none;border:none;outline:none;color:#fff;font-family:var(--mono);font-size:14px}
+
+/* ---------- contact ---------- */
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
 .contact-card{display:block;padding:20px;border:1px solid rgba(0,229,255,.2);border-radius:8px;background:rgba(0,229,255,.03);transition:all .2s}
 .contact-card:hover{background:rgba(0,229,255,.1);box-shadow:0 0 24px rgba(0,229,255,.15);text-decoration:none;transform:translateY(-2px)}
 .contact-card .k{font-size:11px;letter-spacing:2px;color:var(--muted)}
 .contact-card .val{font-size:15px;color:#fff;margin-top:6px;word-break:break-all}
+
 footer{border-top:1px solid rgba(0,229,255,.15);padding:26px 20px;text-align:center;color:var(--muted);font-size:12px;letter-spacing:1px}
 footer .sig{color:var(--cyan)}
 #tooltip{position:fixed;pointer-events:none;background:#0a1220;border:1px solid var(--cyan);border-radius:6px;padding:8px 12px;font-size:12px;color:#fff;display:none;z-index:60;box-shadow:0 0 20px rgba(0,229,255,.3);max-width:260px}
 .err{color:var(--red)} .ok-t{color:var(--green)} .amb{color:var(--amber)}
+
+/* ---------- case studies ---------- */
+.case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.case{background:rgba(0,229,255,.03);border:1px solid rgba(0,229,255,.2);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:10px;transition:all .2s}
+.case:hover{border-color:var(--cyan);box-shadow:0 0 28px rgba(0,229,255,.14);transform:translateY(-3px)}
+.case h3{color:#fff;font-size:16px;letter-spacing:1px}
+.case .prob{font-size:12.5px;color:var(--muted)}
+.case .prob b{color:var(--amber);font-weight:600}
+.case ul{list-style:none;font-size:12.5px;color:var(--text);display:flex;flex-direction:column;gap:6px}
+.case ul li::before{content:"▸ ";color:var(--green)}
+.case .metrics{display:flex;gap:10px;flex-wrap:wrap;font-size:11.5px}
+.case .metrics span{border:1px solid rgba(0,229,255,.3);border-radius:4px;padding:3px 10px;color:var(--cyan)}
+.case .tags{font-size:11px;color:var(--muted);letter-spacing:1px}
+.case .go{margin-top:auto;font-size:13px}
+
+/* ---------- recruiter cheat sheet ---------- */
+.qa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.qa{border-left:2px solid var(--cyan);padding:6px 0 6px 16px}
+.qa .q{font-size:11px;letter-spacing:2px;color:var(--amber);margin-bottom:6px}
+.qa .a{font-size:13.5px;color:var(--text)}
+
+/* ---------- ask-me-about chips ---------- */
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.chip{font-family:var(--mono);font-size:12px;letter-spacing:1px;padding:8px 16px;border-radius:20px;border:1px solid rgba(0,229,255,.35);background:rgba(0,229,255,.05);color:var(--cyan);cursor:pointer;transition:all .2s}
+.chip:hover{background:var(--cyan);color:#001318;box-shadow:0 0 18px rgba(0,229,255,.4)}
+
+/* ---------- contact form ---------- */
+#msg-form{display:grid;gap:12px;margin-top:18px}
+#msg-form input,#msg-form textarea{font-family:var(--mono);font-size:13px;background:rgba(0,0,0,.4);border:1px solid rgba(0,229,255,.25);border-radius:6px;padding:12px 14px;color:#fff;outline:none;width:100%}
+#msg-form input:focus,#msg-form textarea:focus{border-color:var(--cyan);box-shadow:0 0 12px rgba(0,229,255,.25)}
+#msg-form textarea{min-height:120px;resize:vertical}
+#form-status{font-size:12.5px;min-height:1.4em}
 </style>
 </head>
 <body>
+
 <div id="boot" title="click to skip">
   <div id="boot-inner"><div id="boot-lines"></div><span class="cursor"></span></div>
 </div>
+
 <canvas id="stars"></canvas>
 <div id="tooltip"></div>
+
 <header>
   <div class="hwrap">
     <div class="logo"><span class="dot"></span>PHANINDRA.OS</div>
     <nav>
-      <a href="#fleet">FLEET</a><a href="#activity">ACTIVITY</a><a href="#terminal">TERMINAL</a><a href="#contact">CONTACT</a>
+      <a href="#fleet">FLEET</a><a href="#projects">PROJECTS</a><a href="#screening">SCREENING</a><a href="#activity">ACTIVITY</a><a href="#terminal">TERMINAL</a><a href="#contact">CONTACT</a>
     </nav>
     <div id="clock">--:--:-- UTC</div>
   </div>
 </header>
+
 <main>
   <section id="hero">
     <div class="kicker">ML / AI SYSTEMS ENGINEER</div>
@@ -113,30 +170,33 @@ footer .sig{color:var(--cyan)}
     <div id="typed-sub"></div>
     <p class="pitch">
       I build <b>production ML systems</b> — anomaly detection, feature stores, LLM agents —
-      with <b>267 verified tests</b> across the fleet and CI green. MS Computer Science,
+      with <b>267 verified tests</b> across seven validated projects. MS Computer Science,
       University of Dayton. On OPT, open to H-1B. This page is <b>not a screenshot</b>:
       every number below was fetched live from the GitHub API the moment you loaded it,
       and every animation is code running in your browser right now.
     </p>
     <div class="cta-row">
       <a class="btn solid" href="#contact">HIRE ME</a>
+      <a class="btn" href="resume.pdf" download>DOWNLOAD RÉSUMÉ</a>
       <a class="btn" href="https://github.com/NagaSatyaPhanindraVallabhaneni" target="_blank" rel="noopener">GITHUB</a>
       <a class="btn" href="https://www.linkedin.com/in/naga-vallabhaneni-394822438/" target="_blank" rel="noopener">LINKEDIN</a>
     </div>
   </section>
+
   <section id="stats">
     <div class="sec-head"><h2><span class="live-dot"></span>LIVE TELEMETRY</h2><div class="rule"></div><span class="tag">FETCHED AT VIEW-TIME · GITHUB REST API</span></div>
     <div class="panel">
       <div class="stat-grid">
         <div class="stat"><div class="v" id="st-repos">…</div><div class="l">PUBLIC REPOS</div></div>
         <div class="stat"><div class="v" id="st-stars">…</div><div class="l">TOTAL STARS</div></div>
-        <div class="stat"><div class="v amber" id="st-pushes">…</div><div class="l">PUSHES · 14 DAYS</div></div>
+        <div class="stat"><div class="v amber" id="st-pushes">…</div><div class="l">PUSH EVENTS · RECENT</div></div>
         <div class="stat"><div class="v" id="st-tests">267</div><div class="l">VERIFIED TESTS</div></div>
         <div class="stat"><div class="v" id="st-lang">…</div><div class="l">TOP LANGUAGE</div></div>
       </div>
       <div id="data-stamp">contacting github api…</div>
     </div>
   </section>
+
   <section id="fleet">
     <div class="sec-head"><h2><span class="live-dot"></span>REPO CONSTELLATION</h2><div class="rule"></div><span class="tag">HOVER A PLANET · CLICK TO OPEN</span></div>
     <div class="panel">
@@ -146,50 +206,130 @@ footer .sig{color:var(--cyan)}
       </div>
     </div>
   </section>
+
+  <section id="projects">
+    <div class="sec-head"><h2>CASE STUDIES</h2><div class="rule"></div><span class="tag">PROBLEM → BUILD → PROOF</span></div>
+    <div class="case-grid">
+      <div class="case">
+        <h3>▸ streaming-feature-store</h3>
+        <p class="prob"><b>PROBLEM:</b> ML models starve when features arrive late — or disagree between training and serving.</p>
+        <ul><li>Tumbling-window aggregation engine in pure Python</li><li>Point-in-time correct lookups — no train/serve skew</li><li>59 tests passing</li></ul>
+        <div class="metrics"><span>59 TESTS</span><span>PYTHON</span></div>
+        <p class="tags">streaming · feature engineering · ml infra</p>
+        <a class="go" href="https://github.com/NagaSatyaPhanindraVallabhaneni/streaming-feature-store" target="_blank" rel="noopener">▸ view repo</a>
+      </div>
+      <div class="case">
+        <h3>▸ log-anomaly-detector</h3>
+        <p class="prob"><b>PROBLEM:</b> Outages hide in log noise for hours before anyone notices.</p>
+        <ul><li>FastAPI service + scikit-learn IsolationForest</li><li>Flags anomalous log lines before they become incidents</li><li>86.8% recall on synthetic benchmark · 19 tests passing</li></ul>
+        <div class="metrics"><span>19 TESTS</span><span>86.8% RECALL</span></div>
+        <p class="tags">anomaly detection · fastapi · scikit-learn</p>
+        <a class="go" href="https://github.com/NagaSatyaPhanindraVallabhaneni/log-anomaly-detector" target="_blank" rel="noopener">▸ view repo</a>
+      </div>
+      <div class="case">
+        <h3>▸ diffusion-image-generator</h3>
+        <p class="prob"><b>PROBLEM:</b> Anyone can call an API. Few can build the model underneath it.</p>
+        <ul><li>Diffusion model written from scratch — no diffusers library</li><li>Custom UNet denoiser in pure PyTorch, 755K parameters</li><li>Generates handwritten digits (MNIST) · 34 tests passing</li></ul>
+        <div class="metrics"><span>34 TESTS</span><span>755K PARAMS</span></div>
+        <p class="tags">pytorch · diffusion · generative ai</p>
+        <a class="go" href="https://github.com/NagaSatyaPhanindraVallabhaneni/diffusion-image-generator" target="_blank" rel="noopener">▸ view repo</a>
+      </div>
+      <div class="case">
+        <h3>▸ timeseries-forecasting-engine</h3>
+        <p class="prob"><b>PROBLEM:</b> Most forecasting demos cheat — they validate on the future.</p>
+        <ul><li>LSTM + Transformer forecasters with walk-forward backtesting</li><li>Honest evaluation: the model never sees the future</li><li>FastAPI serving layer · 32 tests passing</li></ul>
+        <div class="metrics"><span>32 TESTS</span><span>WALK-FORWARD</span></div>
+        <p class="tags">time-series · lstm · transformers · fastapi</p>
+        <a class="go" href="https://github.com/NagaSatyaPhanindraVallabhaneni/timeseries-forecasting-engine" target="_blank" rel="noopener">▸ view repo</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="screening">
+    <div class="sec-head"><h2><span class="live-dot"></span>RECRUITER CHEAT SHEET</h2><div class="rule"></div><span class="tag">SCREENING ANSWERS · ZERO FRICTION</span></div>
+    <div class="panel"><div class="qa-grid">
+      <div class="qa"><div class="q">WORK AUTHORIZATION</div><div class="a">Authorized to work in the US on OPT EAD — no sponsorship needed to start. Open to H-1B sponsorship.</div></div>
+      <div class="qa"><div class="q">LOCATION</div><div class="a">Dayton, OH — open to remote roles.</div></div>
+      <div class="qa"><div class="q">EXPERIENCE</div><div class="a">2+ years professional (Accenture, LJ Technologies) + MS Computer Science, University of Dayton, May 2026.</div></div>
+      <div class="qa"><div class="q">STACK</div><div class="a">Python · PyTorch · FastAPI · SQL · Docker / Kubernetes · AWS / GCP.</div></div>
+      <div class="qa"><div class="q">FOCUS</div><div class="a">ML systems, data pipelines, LLM agents, MLOps — production code, tested.</div></div>
+      <div class="qa"><div class="q">PROOF</div><div class="a">267 verified tests across seven open-source projects — all on my GitHub, all runnable.</div></div>
+    </div></div>
+  </section>
+
   <section id="activity">
-    <div class="sec-head"><h2><span class="live-dot"></span>COMMIT PULSE</h2><div class="rule"></div><span class="tag">LAST 14 DAYS · PUSH EVENTS</span></div>
+    <div class="sec-head"><h2><span class="live-dot"></span>COMMIT PULSE</h2><div class="rule"></div><span class="tag">PUSH EVENTS · LATEST WINDOW</span></div>
     <div class="panel"><canvas id="pulse"></canvas><div class="hint" id="pulse-hint">ANALYZING PUSH EVENTS…</div></div>
   </section>
+
   <section id="terminal">
     <div class="sec-head"><h2>TERMINAL</h2><div class="rule"></div><span class="tag">TYPE <span class="amb">help</span> AND HIT ENTER</span></div>
+    <div class="chips">
+      <button class="chip" data-cmd="projects">▸ flagship builds</button>
+      <button class="chip" data-cmd="auth">▸ work authorization</button>
+      <button class="chip" data-cmd="stats">▸ live stats</button>
+      <button class="chip" data-cmd="hire">▸ why hire me</button>
+      <button class="chip" data-cmd="contact">▸ contact</button>
+    </div>
     <div id="term">
       <div id="term-bar"><span class="d" style="background:#f87171"></span><span class="d" style="background:#ffb300"></span><span class="d" style="background:#4ade80"></span><span style="margin-left:8px">phanindra@os: ~</span></div>
       <div id="term-out"></div>
       <div id="term-in-row"><span class="prompt">▸</span><input id="term-in" autocomplete="off" spellcheck="false" placeholder="type a command…"></div>
     </div>
   </section>
+
   <section id="contact">
     <div class="sec-head"><h2>ESTABLISH UPLINK</h2><div class="rule"></div><span class="tag">RESPONSE TIME &lt; 24H</span></div>
     <div class="contact-grid">
       <a class="contact-card" href="mailto:phanindra.vns@gmail.com"><div class="k">EMAIL</div><div class="val">phanindra.vns@gmail.com</div></a>
       <a class="contact-card" href="https://www.linkedin.com/in/naga-vallabhaneni-394822438/" target="_blank" rel="noopener"><div class="k">LINKEDIN</div><div class="val">/in/naga-vallabhaneni-394822438</div></a>
       <a class="contact-card" href="https://github.com/NagaSatyaPhanindraVallabhaneni" target="_blank" rel="noopener"><div class="k">GITHUB</div><div class="val">@NagaSatyaPhanindraVallabhaneni</div></a>
-      <div class="contact-card"><div class="k">LOCATION</div><div class="val">Dayton, OH · open to relocate</div></div>
+      <div class="contact-card"><div class="k">LOCATION</div><div class="val">Dayton, OH</div></div>
+    </div>
+    <div class="panel" style="margin-top:18px">
+      <div class="sec-head" style="margin-bottom:12px"><h2 style="font-size:14px">DIRECT MESSAGE</h2><div class="rule"></div><span class="tag">NO EMAIL CLIENT NEEDED</span></div>
+      <form id="msg-form">
+        <input type="text" name="name" placeholder="your name" required>
+        <input type="email" name="email" placeholder="your work email" required>
+        <textarea name="message" placeholder="role, team, timeline — what are you hiring for?" required></textarea>
+        <button class="btn solid" type="submit">TRANSMIT MESSAGE</button>
+        <div id="form-status"></div>
+      </form>
     </div>
   </section>
 </main>
+
 <footer>
   <span class="sig">PHANINDRA.OS</span> · rendered live in your browser · data: GitHub REST API · no static mockups were harmed
 </footer>
 <script>
 "use strict";
+/* ============================================================
+   PHANINDRA.OS — every pixel below is computed live in your
+   browser. No pre-rendered images, no animated GIFs.
+   Data: GitHub REST API, fetched at view-time.
+   ============================================================ */
 const USER = "NagaSatyaPhanindraVallabhaneni";
 const REDUCED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const $ = id => document.getElementById(id);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---------------- clock ---------------- */
 function tickClock(){
   const d = new Date();
   $("clock").textContent = String(d.getUTCHours()).padStart(2,"0")+":"+String(d.getUTCMinutes()).padStart(2,"0")+":"+String(d.getUTCSeconds()).padStart(2,"0")+" UTC";
 }
 setInterval(tickClock, 1000); tickClock();
+
+/* ---------------- boot sequence (typed live by JS) ---------------- */
 const BOOT_LINES = [
   {t:"PHANINDRA.OS kernel v3.0 — initializing", c:""},
   {t:"  ▸ neural link ............ <span class='ok'>STABLE</span>", c:""},
   {t:"  ▸ identity ............... <span class='ok'>ML/AI SYSTEMS ENGINEER</span>", c:""},
   {t:"  ▸ work_auth .............. <span class='ok'>OPT EAD · open to H-1B</span>", c:""},
   {t:"  ▸ arsenal ................ <span class='ok'>python · pytorch · fastapi · docker · k8s · aws</span>", c:""},
-  {t:"  ▸ test harness ........... <span class='ok'>267 verified tests · CI green</span>", c:""},
+  {t:"  ▸ test harness ........... <span class='ok'>267 verified tests · 7 projects</span>", c:""},
   {t:"", c:""},
   {t:"<span class='dim'>fetching live telemetry from api.github.com …</span>", c:""},
   {t:"<span class='warn'>WARNING:</span> static portfolios detected in sector — engaging live render", c:""},
@@ -207,6 +347,7 @@ async function runBoot(){
     const div = document.createElement("div");
     box.appendChild(div);
     const plain = line.t.replace(/<[^>]*>/g,"");
+    // type plain text, then swap in the styled html for color
     for (let i=0;i<=plain.length;i+=2){
       div.textContent = plain.slice(0,i);
       await sleep(8);
@@ -219,6 +360,8 @@ async function runBoot(){
   $("boot").classList.add("done");
 }
 $("boot").addEventListener("click", ()=>$("boot").classList.add("done"));
+
+/* ---------------- starfield: particle neural net ---------------- */
 (function starfield(){
   const cv = $("stars"), ctx = cv.getContext("2d");
   let W,H,pts=[],mx=-9999,my=-9999;
@@ -231,6 +374,7 @@ $("boot").addEventListener("click", ()=>$("boot").classList.add("done"));
   function frame(){
     ctx.clearRect(0,0,W,H);
     for (const p of pts){
+      // gentle mouse repulsion — the field reacts to you
       const dx=p.x-mx, dy=p.y-my, d=Math.hypot(dx,dy);
       if (d<140 && d>1){ p.x+=dx/d*.9; p.y+=dy/d*.9; }
       p.x+=p.vx; p.y+=p.vy;
@@ -246,6 +390,8 @@ $("boot").addEventListener("click", ()=>$("boot").classList.add("done"));
   }
   frame();
 })();
+
+/* ---------------- hero typed headline ---------------- */
 async function typeHero(){
   const name=$("typed-name"), sub=$("typed-sub");
   const N="PHANINDRA VALLABHANENI", S="MACHINE LEARNING ENGINEER · AI INFRASTRUCTURE";
@@ -258,8 +404,10 @@ async function typeHero(){
 </script>
 <script>
 "use strict";
+/* ---------------- live data layer ---------------- */
 const LANG_COLORS = {Python:"#4fc3f7",Jupyter:"#f48fb1",JavaScript:"#ffd54f",TypeScript:"#82b4ff",HTML:"#ff8a65",CSS:"#ce93d8",Shell:"#a5d6a7",Dockerfile:"#80cbc4",Go:"#80deea",Rust:"#ffab91"};
 const state = { repos:[], events:[], user:null, ready:false, err:null };
+
 async function gh(path){
   const r = await fetch("https://api.github.com"+path, {headers:{"Accept":"application/vnd.github+json"}});
   if(!r.ok) throw new Error("GitHub API "+r.status);
@@ -283,11 +431,11 @@ async function loadLive(){
     const ri=$("repo-info"); if(ri) ri.innerHTML=`<h3 class="err">// uplink failed</h3><p>${esc(e.message)}</p>`;
   }
 }
+
 function renderStats(){
   const repos=state.repos;
   const stars=repos.reduce((a,r)=>a+r.stargazers_count,0);
   const pushes=state.events.filter(e=>e.type==="PushEvent").length;
-
   const langs={};
   repos.forEach(r=>{ if(r.language) langs[r.language]=(langs[r.language]||0)+1; });
   const top=Object.entries(langs).sort((a,b)=>b[1]-a[1])[0];
@@ -296,10 +444,13 @@ function renderStats(){
   $("st-pushes").textContent=pushes;
   $("st-lang").textContent=top?top[0]:"—";
 }
+
+/* ---------------- repo constellation (canvas, interactive) ---------------- */
 function initConstellation(){
   const cv=$("constel"), ctx=cv.getContext("2d"), tip=$("tooltip"), info=$("repo-info");
   const repos=state.repos.slice().sort((a,b)=>new Date(b.pushed_at)-new Date(a.pushed_at)).slice(0,14);
   let W,H,cx,cy,planets=[],rot=0,rotV=0,dragging=false,lastX=0,hover=null;
+
   function resize(){
     const r=cv.getBoundingClientRect(); W=cv.width=r.width; H=cv.height=520; cv.height=520;
     cx=W/2; cy=H/2;
@@ -308,14 +459,16 @@ function initConstellation(){
       const ring=i%3;
       return { repo,
         radius: maxR*(0.38+0.31*ring),
-        angle: (i/repos.length)*Math.PI*2 + ring*0.7,
-        speed: 0.0016 - ring*0.0004,
+        angle: (i/repositories_count(repos))*Math.PI*2 + ring*0.7,
+        speed: 0.0016 - ring*0.0004,               // inner rings orbit faster
         size: 7 + Math.min(repo.stargazers_count,12)*1.4,
         color: LANG_COLORS[repo.language]||"#00e5ff",
         x:0, y:0 };
     });
   }
+  function repositories_count(a){ return a.length; }
   resize(); addEventListener("resize", resize);
+
   function showInfo(p){
     const r=p.repo, d=new Date(r.pushed_at);
     info.innerHTML=`<h3>${esc(r.name)}</h3><p>${esc(r.description||"no description")}</p>
@@ -342,14 +495,18 @@ function initConstellation(){
   });
   cv.addEventListener("mouseleave", ()=>{ tip.style.display="none"; hover=null; });
   cv.addEventListener("click", ()=>{ if(hover) window.open(hover.repo.html_url,"_blank","noopener"); });
+  // drag to rotate the whole system
   cv.addEventListener("pointerdown", e=>{dragging=true;lastX=e.clientX;cv.setPointerCapture(e.pointerId);});
   cv.addEventListener("pointermove", e=>{ if(dragging){ rotV=(e.clientX-lastX)*0.002; lastX=e.clientX; }});
   cv.addEventListener("pointerup", ()=>dragging=false);
+
   function draw(){
     rot+=rotV; rotV*=0.94;
     ctx.clearRect(0,0,W,H);
+    // orbit rings
     ctx.strokeStyle="rgba(0,229,255,.12)"; ctx.lineWidth=1;
     for(const p of planets){ ctx.beginPath(); ctx.arc(cx,cy,p.radius,0,7); ctx.stroke(); }
+    // core
     const g=ctx.createRadialGradient(cx,cy,2,cx,cy,34);
     g.addColorStop(0,"#ffffff"); g.addColorStop(.35,"#00e5ff"); g.addColorStop(1,"rgba(0,229,255,0)");
     ctx.fillStyle=g; ctx.beginPath(); ctx.arc(cx,cy,34,0,7); ctx.fill();
@@ -357,12 +514,15 @@ function initConstellation(){
     ctx.fillText("PV",cx,cy);
     ctx.fillStyle="rgba(0,229,255,.8)"; ctx.font="10px monospace";
     ctx.fillText("PHANINDRA",cx,cy+52);
+    // planets
     for(const p of planets){
       if(!dragging) p.angle+=p.speed;
       p.x=cx+Math.cos(p.angle+rot)*p.radius;
       p.y=cy+Math.sin(p.angle+rot)*p.radius*0.82;
+      // tether
       ctx.strokeStyle="rgba(0,229,255,.18)";
       ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(p.x,p.y); ctx.stroke();
+      // glow + body
       const pg=ctx.createRadialGradient(p.x,p.y,1,p.x,p.y,p.size*2.4);
       pg.addColorStop(0,p.color); pg.addColorStop(1,"rgba(0,0,0,0)");
       ctx.fillStyle=pg; ctx.beginPath(); ctx.arc(p.x,p.y,p.size*2.4,0,7); ctx.fill();
@@ -382,6 +542,7 @@ function initConstellation(){
 </script>
 <script>
 "use strict";
+/* ---------------- commit pulse (canvas, animated draw) ---------------- */
 function initPulse(){
   const cv=$("pulse"), ctx=cv.getContext("2d"), hint=$("pulse-hint");
   const days=[]; const now=new Date();
@@ -395,18 +556,23 @@ function initPulse(){
     if(map[key]){ map[key].n+=n; total+=n; }
   }
   const peak=days.reduce((a,d)=>d.n>a.n?d:a, days[0]);
-  hint.innerHTML=`<span class="ok-t">●</span> ${total} pushes in 14 days · peak <span class="amb">${peak.n} on ${peak.key}</span> · source: events api · animated live`;
+  hint.innerHTML=`<span class="ok-t">●</span> ${total} push events in the latest public-event window · peak <span class="amb">${peak.n} on ${peak.key}</span> · animated live`;
+
   let W,H,prog=0,dotT=0;
   function resize(){ const r=cv.getBoundingClientRect(); W=cv.width=r.width; H=cv.height=300; cv.height=300; }
   resize(); addEventListener("resize", resize);
   const max=Math.max(...days.map(d=>d.n),1);
   const px=i=>50+(W-80)*(i/13), py=n=>H-46-(H-110)*(n/max);
+
   function draw(){
     ctx.clearRect(0,0,W,H);
+    // grid
     ctx.strokeStyle="rgba(0,229,255,.1)"; ctx.lineWidth=1;
     for(let gI=0;gI<4;gI++){ const y=30+gI*(H-110)/3; ctx.beginPath(); ctx.moveTo(50,y); ctx.lineTo(W-30,y); ctx.stroke(); }
+    // labels
     ctx.fillStyle="rgba(125,140,163,.9)"; ctx.font="10px monospace"; ctx.textAlign="center";
     days.forEach((d,i)=>{ if(i%2===0) ctx.fillText(d.key.slice(5), px(i), H-24); });
+    // waveform — drawn progressively, then the pulse dot travels it forever
     const upto=Math.floor(prog*13);
     const grad=ctx.createLinearGradient(0,0,W,0);
     grad.addColorStop(0,"#00e5ff"); grad.addColorStop(1,"#ffb300");
@@ -414,6 +580,7 @@ function initPulse(){
     ctx.beginPath();
     for(let i=0;i<=upto;i++){ const X=px(i),Y=py(days[i].n); i?ctx.lineTo(X,Y):ctx.moveTo(X,Y); }
     ctx.stroke(); ctx.shadowBlur=0;
+    // area fill
     if(upto>0){
       const ag=ctx.createLinearGradient(0,0,0,H);
       ag.addColorStop(0,"rgba(0,229,255,.18)"); ag.addColorStop(1,"rgba(0,229,255,0)");
@@ -423,6 +590,7 @@ function initPulse(){
     }
     if(prog<1){ prog=Math.min(1,prog+0.012); }
     else{
+      // traveling pulse dot loops along the finished wave
       dotT=(dotT+0.004)%1;
       const fi=dotT*13, i0=Math.floor(fi), fr=fi-i0, i1=Math.min(13,i0+1);
       const X=px(i0)+(px(i1)-px(i0))*fr, Y=py(days[i0].n)+(py(days[i1].n)-py(days[i0].n))*fr;
@@ -431,35 +599,40 @@ function initPulse(){
       ctx.fillStyle=dg; ctx.beginPath(); ctx.arc(X,Y,14,0,7); ctx.fill();
       ctx.fillStyle="#fff"; ctx.beginPath(); ctx.arc(X,Y,3.5,0,7); ctx.fill();
     }
+    // peak marker
     const pi=days.indexOf(peak);
     if(prog*13>=pi){
       ctx.fillStyle="#ffb300"; ctx.font="bold 11px monospace"; ctx.textAlign="right";
       ctx.fillText(`PEAK ▸ ${peak.n} pushes · ${peak.key}`, W-34, 22);
     }
     ctx.fillStyle="rgba(0,229,255,.9)"; ctx.font="bold 13px monospace"; ctx.textAlign="left";
-    ctx.fillText("♥ COMMIT PULSE // LAST 14 DAYS", 50, 22);
+    ctx.fillText("♥ COMMIT PULSE // RECENT PUSH EVENTS", 50, 22);
     if(!REDUCED) requestAnimationFrame(draw);
   }
   draw();
 }
+
+/* ---------------- terminal ---------------- */
 (function terminal(){
   const out=$("term-out"), inp=$("term-in");
   const print=(html)=>{ out.innerHTML+=html+"\n"; out.scrollTop=out.scrollHeight; };
   const line=(c,t)=>print(`<span class="in">▸</span> <span class="cmd">${esc(c)}</span>\n${t}`);
   print(`<span class="ok-t">PHANINDRA.OS shell v3.0</span> — type <span class="amb">help</span> to begin.\n`);
   const CMDS={
-    help:()=>`commands:\n  <span class="amb">whoami</span> .... identity\n  <span class="amb">repos</span> ..... live repo list (from github api)\n  <span class="amb">skills</span> .... arsenal\n  <span class="amb">stats</span> ..... live telemetry\n  <span class="amb">hire</span> ...... why you should hire me\n  <span class="amb">contact</span> ... uplink channels\n  <span class="amb">clear</span> ..... wipe screen`,
-    whoami:()=>`naga satya phanindra vallabhaneni\nml/ai systems engineer · dayton, oh\nms computer science, university of dayton (2026)\nopt ead · authorized now · open to h-1b sponsorship\ni ship tested, working systems — 267 verified tests and counting.`,
-    skills:()=>`python · pytorch · tensorflow · scikit-learn\nfastapi · rest apis · sql · data pipelines\ndocker · kubernetes · jenkins · ci/cd\na2a/mcp agents · llm evaluation · mlops\nstreaming systems · anomaly detection · time-series`,
+    help:()=>`commands:\n  <span class="amb">whoami</span> .... identity\n  <span class="amb">projects</span> .. flagship builds\n  <span class="amb">auth</span> ...... work authorization\n  <span class="amb">repos</span> ..... live repo list (from github api)\n  <span class="amb">skills</span> .... arsenal\n  <span class="amb">stats</span> ..... live telemetry\n  <span class="amb">hire</span> ...... why you should hire me\n  <span class="amb">contact</span> ... uplink channels\n  <span class="amb">clear</span> ..... wipe screen`,
+    whoami:()=>`naga satya phanindra vallabhaneni\nml/ai systems engineer · dayton, oh\nms computer science, university of dayton (2026)\nopt ead · authorized now · open to h-1b sponsorship\ni ship tested, working systems — 267 verified tests across 7 flagship projects.`,
+    projects:()=>`flagship builds:\n  <span class="ok-t">streaming-feature-store</span> ...... real-time feature windows · 59 tests\n  <span class="ok-t">log-anomaly-detector</span> ....... isolationforest api · 86.8% recall · 19 tests\n  <span class="ok-t">diffusion-image-generator</span> ... diffusion from scratch · 755k params · 34 tests\n  <span class="ok-t">timeseries-forecasting-engine</span>  lstm + transformer · walk-forward backtest · 32 tests\nscroll up to <span class="amb">case studies</span> for the full breakdown.`,
+    auth:()=>`authorized to work in the us on opt ead — no sponsorship needed to start.\nopen to h-1b sponsorship. no clearance required, none held.`,
+    skills:()=>`python · pytorch · tensorflow · scikit-learn\nfastapi · rest apis · sql · data pipelines\n docker · kubernetes · jenkins · ci/cd\na2a/mcp agents · llm evaluation · mlops\nstreaming systems · anomaly detection · time-series`,
     stats:()=> state.ready
-      ? `public repos : ${state.user.public_repos}\ntotal stars  : ${state.repos.reduce((a,r)=>a+r.stargazers_count,0)}\n14-day pushes: ${state.events.filter(e=>e.type==="PushEvent").length} push events\nfingerprint  : live, fetched at view-time`
+      ? `public repos : ${state.user.public_repos}\ntotal stars  : ${state.repos.reduce((a,r)=>a+r.stargazers_count,0)}\nrecent pushes: ${state.events.filter(e=>e.type==="PushEvent").length} push events (latest window)\nfingerprint  : live, fetched at view-time`
       : `<span class="err">telemetry offline — github api unreachable.</span>`,
     repos:()=> state.ready
       ? state.repos.slice().sort((a,b)=>new Date(b.pushed_at)-new Date(a.pushed_at)).slice(0,10)
           .map(r=>`  ▸ <span class="ok-t">${esc(r.name)}</span> — ${esc(r.description||"no description").slice(0,60)} ★${r.stargazers_count}`).join("\n")
       : `<span class="err">repo index offline.</span>`,
-    hire:()=>`because i don't do demo-ware.\nevery flagship repo: real code, real tests, ci green.\ni've built anomaly detection, feature stores,\nself-improving agents and diffusion models — from scratch.\n<span class="ok-t">available immediately. let's talk.</span>`,
-    contact:()=>`email    : phanindra.vns@gmail.com\ngithub   : github.com/${USER}\nlinkedin : /in/naga-vallabhaneni-394822438\nlocation : dayton, oh · open to relocate`,
+    hire:()=>`because i don't do demo-ware.\nflagship repos ship with real tests — 267 verified.\ni've built anomaly detection, feature stores,\nself-improving agents and diffusion models — from scratch.\n<span class="ok-t">let's talk.</span>`,
+    contact:()=>`email    : phanindra.vns@gmail.com\ngithub   : github.com/${USER}\nlinkedin : /in/naga-vallabhaneni-394822438\nlocation : dayton, oh`,
     clear:()=>{ out.innerHTML=""; return ""; },
     sudo:()=>`<span class="err">permission denied.</span> nice try — but i like the ambition. type <span class="amb">hire</span> instead.`,
   };
@@ -472,6 +645,41 @@ function initPulse(){
     else line(raw,`<span class="err">unknown command:</span> ${esc(c)} — try <span class="amb">help</span>`);
   });
 })();
+
+/* ---------------- ask-me-about chips ---------------- */
+document.querySelectorAll(".chip").forEach(ch=>{
+  ch.addEventListener("click", ()=>{
+    const inp=$("term-in");
+    inp.value=ch.dataset.cmd;
+    inp.dispatchEvent(new KeyboardEvent("keydown",{key:"Enter",bubbles:true}));
+    $("terminal").scrollIntoView({behavior:"smooth",block:"center"});
+    setTimeout(()=>inp.focus(),600);
+  });
+});
+
+/* ---------------- contact form (formsubmit ajax) ---------------- */
+(function(){
+  const f=$("msg-form"); if(!f) return;
+  const st=$("form-status");
+  f.addEventListener("submit", async e=>{
+    e.preventDefault();
+    st.innerHTML=`<span class="amb">● transmitting…</span>`;
+    const data=Object.fromEntries(new FormData(f).entries());
+    try{
+      const r=await fetch("https://formsubmit.co/ajax/phanindra.vns@gmail.com",{
+        method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
+        body:JSON.stringify(Object.assign({},data,{_subject:"PHANINDRA.OS — recruiter ping",_template:"table"}))
+      });
+      if(!r.ok) throw new Error("HTTP "+r.status);
+      st.innerHTML=`<span class="ok-t">● message received.</span> i reply within 24h.`;
+      f.reset();
+    }catch(err){
+      st.innerHTML=`<span class="err">● uplink failed (`+esc(err.message)+`).</span> email me directly: <a href="mailto:phanindra.vns@gmail.com">phanindra.vns@gmail.com</a>`;
+    }
+  });
+})();
+
+/* ---------------- ignition ---------------- */
 (async function init(){
   typeHero();
   await runBoot();
